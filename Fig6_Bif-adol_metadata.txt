@@ -1,0 +1,133 @@
+R_name	SNV_tree_name	Type	Country	Region	Plot_geo
+AF02.8_human.feces_China_GCA_027688555	China_28I	isolate	China	China/SE Asia	China
+AF14.56_human.feces_China_GCA_003465205	China_AF14I	isolate	China	China/SE Asia	China
+AF92.02A_human.feces_China_GCA_027664845	China_202AI	isolate	China	China/SE Asia	China
+AM110.65_human.feces_China_GCA_027674825	China_1065I	isolate	China	China/SE Asia	China
+AM14.37_China_GCA_003472095	China_AM14I	isolate	China	China/SE Asia	China
+AM64.16A_China_GCA_027667565	China_AM64I	isolate	China	China/SE Asia	China
+AM66.51ACA_human.feces_China_GCA_027667065	China_651ACI	isolate	China	China/SE Asia	China
+BB23_human.feces_China_GCA_000817995	China_BB23I	isolate	China	China/SE Asia	China
+Bifidobacterium.adolescentis_AK_SK_1_Brokpa	Brokpa_1M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_11_Brokpa	Brokpa_11M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_12_Brokpa	Brokpa_12M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_13_Brokpa	Brokpa_13M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_2_Purigpa	Purigpa_2M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_25_Purigpa	Purigpa_25M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_32_Balti	Balti_32M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_33_Brokpa	Brokpa_33M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_35_Balti	Balti_35M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_36_Boto	Boto_36M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_37_Brokpa	Brokpa_37M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_44_Balti	Balti_44M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_45_Purigpa	Purigpa_45M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_48_Purigpa	Purigpa_48M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_8_Balti	Balti_8M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_AK_SK_9_Boto	Boto_9M	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_RS12_A_Warli	Warli_RS12AM	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_RS12_B_Warli	Warli_RS12BM	MAG	India	India/Nepal	India
+Bifidobacterium.adolescentis_RS5_A_Warli	Warli_RS5AM	MAG	India	India/Nepal	India
+ca0067_human.feces_CambridgeMA_GCA_004167585	USA_ca0057I	isolate	USA	North America	USA
+China.MGYG000047373	China_47373M	MAG	China	China/SE Asia	China
+China.MGYG000093441	China_93441M	MAG	China	China/SE Asia	China
+China.MGYG000111016	China_11101M	MAG	China	China/SE Asia	China
+China.MGYG000117766	China_11776M	MAG	China	China/SE Asia	China
+China.MGYG000170701	China_17070M	MAG	China	China/SE Asia	China
+China.MGYG000170766	China_17076M	MAG	China	China/SE Asia	China
+China.MGYG000175018	China_17501M	MAG	China	China/SE Asia	China
+China.MGYG000225533	China_22553M	MAG	China	China/SE Asia	China
+China.MGYG000226008	China_22600M	MAG	China	China/SE Asia	China
+China.MGYG000287017	China_28701M	MAG	China	China/SE Asia	China
+CLA.AP.H11_human.feces_Germany_GCA_040092935	Germany_API	isolate	Germany	Europe	Europe
+CLA.SR.H001_human.feces_Germany_GCA_040097245	Germany_SRI	isolate	Germany	Europe	Europe
+D31t1.E3_human.feces_NewYork_GCA_015549865	USA_t1E3I	isolate	USA	North America	USA
+D46t1.C9_human.feces_NewYork_GCA_015558575	USA_t1C9I	isolate	USA	North America	USA
+D52t1.B8_human.feces_NewYork_GCA_015558415	USA_t1B8I	isolate	USA	North America	USA
+D53t1_human.feces_NewYork_GCA_015552825	USA_t1I	isolate	USA	North America	USA
+D59t2.181005.G7_human.feces_NewYork_GCA_015555595	USA_D59t2I	isolate	USA	North America	USA
+ElSalvador.MGYG000032473	ElSalva_324M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000037768	ElSalva_377M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000099659	ElSalva_996M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000124287	ElSalva_124M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000132829	ElSalva_132M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000209388	ElSalva_209M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000210883	ElSalva_210M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000228997	ElSalva_228M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000284637	ElSalva_284M	MAG	El Salvador	South America	El Salvador
+ElSalvador.MGYG000285386	ElSalva_285M	MAG	El Salvador	South America	El Salvador
+H37_UK_GCA_001406735	UK_H37I	isolate	UK	Europe	Europe
+H411_UK_GCA_001406215	UK_H411I	isolate	UK	Europe	Europe
+iVS.1_human.feces_Nebraska_GCA_029855065	USA_iVS-1I	isolate	USA	North America	USA
+MCC257_human.feces_Ireland_GCA_018785715	Ireland_MCCI	isolate	Ireland	Europe	Europe
+METABAT215_SUBJECTMAPPING_SCAFFOLDS_1500_MERGED_K77_METASPADES__AK_SK_5	Balti_55M	MAG	India	India/Nepal	India
+Mongolia.MGYG000008798	Mongolia_08M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000012063	Mongolia_12M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000021867	Mongolia_21M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000048473	Mongolia_48M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000050898	Mongolia_50M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000056268	Mongolia_56M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000059995	Mongolia_59M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000060881	Mongolia_60M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000066585	Mongolia_66M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000073223	Mongolia_73M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000100616	Mongolia_10M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000116659	Mongolia_11M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000117819	Mongolia_17M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000131768	Mongolia_13M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000158456	Mongolia_15M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000175950	Mongolia_19M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000185946	Mongolia_18M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000212973	Mongolia_97M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000240385	Mongolia_24M	MAG	Mongolia	China/SE Asia	Mongolia
+Mongolia.MGYG000280676	Mongolia_28M	MAG	Mongolia	China/SE Asia	Mongolia
+REFINED_METABAT215_SUBJECT_CONTIGS_1500_ASSEMBLY_K77_MERGED__Pilot_MoBio_Fiber_C_21_7002	USA_7002M	MAG	USA	North America	USA
+REFINED_METABAT215_SUBJECT_CONTIGS_1500_ASSEMBLY_K77_MERGED__Pilot_MoBio_Fiber_C_24_1038	USA_1038M	MAG	USA	North America	USA
+REFINED_METABAT215_SUBJECT_CONTIGS_1500_ASSEMBLY_K77_MERGED__Pilot_MoBio_Fiber_C_4_7003	USA_7003M	MAG	USA	North America	USA
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.E.H_A_10_1818	Hadza_A10M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.E.H_E_24_1866	Hadza_E24M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.E.H_I_3_1743	Hadza_I3M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.E.H_P_19_2149	Hadza_P19M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.I.L_B_17_2661	Hadza_B17M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.I.L_D_23_2656	Hadza_D23M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.I.L_M_21_2500	Hadza_M21M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Hadza_MoBio_hadza.I.L_M_23_2501	Hadza_M23M	MAG	Hadza	Africa	Hadza
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_B_17_RAU1026YZ	Nepal_B17M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_B_21_THA1063YZ	Nepal_B21M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_D_1_THA1067YZ	Nepal_D1M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_D_3_THA1067YZ_1	Nepal_D3M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_D_5_THA1074JZ	Nepal_D5M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_F_11_RAU1009YZ	Nepal_F11M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_F_23_THA0068JZ	Nepal_F23M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_F_5_RAU0022YZ	Nepal_F5M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_H_3_THA1060YZ	Nepal_H3M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_J_15_THA1075YZ	Nepal_J15M	MAG	Nepal	India/Nepal	Nepal
+REFINED_METABAT215_TOP10_CONTIGS_1500_ASSEMBLY_K77_MERGED__Nepal_MoBio_Fiber.Hadza.Nepal_J_7_THA0058AZ	Nepal_J7M	MAG	Nepal	India/Nepal	Nepal
+UnitedKingdom.MGYG000036973	UK_3697M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000044575	UK_4457M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000044941	UK_4494M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000083139	UK_8313M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000114505	UK_1140M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000124758	UK_1247M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000146104	UK_1461M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000196958	UK_1969M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000205281	UK_2052M	MAG	UK	Europe	Europe
+UnitedKingdom.MGYG000287127	UK_2871M	MAG	UK	Europe	Europe
+UnitedStates.MGYG000092376	USA_923M	MAG	USA	North America	USA
+UnitedStates.MGYG000092433	USA_924M	MAG	USA	North America	USA
+UnitedStates.MGYG000101498	USA_101M	MAG	USA	North America	USA
+UnitedStates.MGYG000114143	USA_114M	MAG	USA	North America	USA
+UnitedStates.MGYG000136926	USA_136M	MAG	USA	North America	USA
+UnitedStates.MGYG000138549	USA_138M	MAG	USA	North America	USA
+UnitedStates.MGYG000147020	USA_014M	MAG	USA	North America	USA
+UnitedStates.MGYG000225709	USA_225M	MAG	USA	North America	USA
+UnitedStates.MGYG000241712	USA_241M	MAG	USA	North America	USA
+UnitedStates.MGYG000283239	USA_283M	MAG	USA	North America	USA
+X1001099B.F6_human.feces_NewYork_GCA_015554265	USA_9BF6I	isolate	USA	North America	USA
+X1001262B.human.feces_NewYork_GCA_015557685	USA_1001262I	isolate	USA	North America	USA
+X1001270B.E2_human.feces_NewYork_GCA_015548665	USA_0BE2I	isolate	USA	North America	USA
+X1001271B.A4_human.feces_NewYork_GCA_015548755	USA_1BA4I	isolate	USA	North America	USA
+X1001275B.D1_human.feces_NewYork_GCA_015558565	USA_5BD1I	isolate	USA	North America	USA
+X1001283B1.G1_human.feces_NewYork_GCA_015557595	USA_3B1G1I	isolate	USA	North America	USA
+X1001713B.A6_human.feces_NewYork_GCA_015558745	USA_3BA6I	MAG	USA	North America	USA
+X2789ST_UK_GCA_001406455	UK_2789I	isolate	UK	Europe	Europe
+X2789STDY5834850_human.feces_UnitedKingdom_GCA_001406215	UK_4850I	isolate	UK	Europe	Europe
+ZJ2.centenarian.feces_China_GCA_009832825	China_ZJ2I	isolate	China	China/SE Asia	China
