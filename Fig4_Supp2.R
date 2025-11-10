@@ -7,6 +7,7 @@ library(RColorBrewer)
 library(cowplot)
 library("pheatmap")
 library(viridis)
+library(tidyr)
 
 path = "/Users/emily/Documents/SonnenburgPostdoc/IndianMicrobiome/Revision_October_2025/Github/"
 setwd(path)
@@ -203,4 +204,107 @@ ggsave("Fig4_S2B.png",plot=M,width=3.9*1.2,height=4.7*1.2,units="in")
 ### Code for Panel C is in "Fig4_StackedBar_Tribe.R"
 
 
+
+
+
+#################################################################################
+#   Correlations between taxa types in abundances of main taxa
+#################################################################################
+
+# how many genera are shared between data types? 
+genera_16S = unique(d16melt$Genus)
+genera_M = unique(genusRA$Genus)
+#
+which(genera_16S %in% genera_M)
+shared = genera_16S[which(genera_16S %in% genera_M)]
+length(shared); shared
+
+# let's look at the abundant genera in Figure 4A
+fig4a = c("Segatella","Leyella","Bifidobacterium","Catenibacterium","UCG-002",
+             "Megasphaera","Ligilactobacillus","Dialister","Asteroleplasma","Faecalibacterium",
+             "Agathobacter","Succinivibrio","Treponema","Escherichia-Shigella","Ruminobacter")
+
+# some of these genera AREN'T in the metagenomic data 
+fig4a[-which(fig4a %in% genera_M)]  # UCG-002 Asteroleplasma Treponema Eschericia-Shigella Ruminobacter 
+
+# metagenomics does have "Treponema_D" and "Escherichia" -- rename to match 16S 
+# for the other taxa, we'll add to genusRA at 0 abundance after summarizing shortly 
+genusRA2 <- genusRA %>% mutate(Genus = str_replace(Genus, "Treponema_D", "Treponema"))
+genusRA2 <- genusRA2 %>% mutate(Genus = str_replace(Genus, "Escherichia", "Escherichia-Shigella"))
+
+plotM = subset(genusRA2,genusRA2$Genus %in% fig4a)
+plot16 = subset(d16melt,d16melt$Genus %in% fig4a)
+length(unique(plotM$Genus))
+length(unique(plot16$Genus))
+
+### get the mean rel_ab of each of these taxa by tribe and data type
+mean16 <- plot16 %>% dplyr::group_by(Genus,Tribe) %>% dplyr::summarise(mean_Rel_ab = mean(Rel_ab))
+meanmeta <- plotM %>% dplyr::group_by(Genus,Tribe) %>% dplyr::summarise(mean_Rel_ab = mean(Rel_ab))
+
+# drop the 3 taxa from 16S that don't have equivalents in metagenomics 
+mean16<-subset(mean16,mean16$Genus %in% meanmeta$Genus)
+
+# now we can plot abundance correlations!
+# if we combine both datatypes into one df
+mean16$data.type = "16S"
+meanmeta$data.type = "meta"
+plotdata <- rbind(mean16,meanmeta)
+
+
+# Pivot wider so that each Genus has both 16S and metag values
+df_wide <- plotdata %>%
+  pivot_wider(
+    names_from = data.type,
+    values_from = mean_Rel_ab )
+
+# Define the colors 
+genus_vec = c("Segatella","Leyella","Bifidobacterium","Catenibacterium",
+                        "Megasphaera","Ligilactobacillus","Dialister","Faecalibacterium",
+                        "Agathobacter","Succinivibrio","Treponema","Escherichia-Shigella")
+              
+
+color_vec = c("#E6AB02",'#fc8803',"#b30707",'#f5051d',
+              '#d43fb6',  '#f57fc0','#f09292',"#1F78B4",
+  '#29992b','#84b9fa',"#B2DF8A",'#1b1d87')
+colortable= as.data.frame(cbind(color_vec,genus_vec))
+names(colortable)=c("color","Genus")  
+
+# combine with df_wide
+df_wide2 <- df_wide %>%
+  left_join(colortable, by = "Genus")
+
+# Then make scatterplot faceted by Tribe
+z = ggplot(df_wide, aes(x = `16S`, y = meta)) +
+  geom_point(aes(color = Genus), size = 2, alpha = 0.8) +
+  facet_wrap(~ Tribe, scales = "free") +
+  scale_color_manual(values = setNames(df_wide2$color, df_wide2$Genus)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "gray50") +
+  theme_bw() +
+  labs( x = "16S Mean Relative Abundance",
+    y = "Metagenomic Mean Relative Abundance" )
+z
+
+# Looks good -- save!
+ggsave("Fig4_SX.pdf", plot=z,width=8,height=6,units="in")
+
+
+# calculate linear models for each tribe
+tribes = unique(meanmeta$Tribe)
+genera = unique(df_wide2$Genus)
+
+for (t in 1:length(tribes)) {
+    temp = subset(df_wide,df_wide$Tribe == tribes[t])
+    print(tribes[t])
+    print(summary(lm(temp$meta~temp$`16S`)))
+  }
+
+# Tribe R2 p-val
+# Balti  0.9202 5.09e-07 
+# Boto  0.9347 1.85e-07 
+# Brokpa  0.9467 6.69e-08 
+# Gond 0.9046  1.257e-06
+# Kabui 0.9303  2.577e-07
+# Madia 0.8501  1.227e-05
+# Purigpa  0.9519 3.989e-08
+# Warli 0.9139  7.463e-07
 

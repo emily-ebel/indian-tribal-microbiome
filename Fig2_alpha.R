@@ -4,18 +4,18 @@ library(data.table)
 library(ggplot2)
 library(stringr)
 library(cowplot)
-library("ggsignif")   
+library("ggsignif") 
+library(vegan)
+library(randomcoloR)
 
 path = "/Users/emily/Documents/SonnenburgPostdoc/IndianMicrobiome/Revision_October_2025/Github/"
 setwd(path)
 
 # Function for plotting overlapping histograms
 makeTransparent<-function(someColor, alpha=100)
-{
-  newColor<-col2rgb(someColor)
+{  newColor<-col2rgb(someColor)
   apply(newColor, 2, function(curcoldata){rgb(red=curcoldata[1], green=curcoldata[2],
-                                              blue=curcoldata[3],alpha=alpha, maxColorValue=255)})
-}
+                                            blue=curcoldata[3],alpha=alpha, maxColorValue=255)})}
 
 
 
@@ -24,13 +24,10 @@ makeTransparent<-function(someColor, alpha=100)
 #######    16S Alpha Diversity (RSVs)     ########################################
 ##################################################################################
 
-
 ### Read in abundance data 
 d <-read.table("Fig2_relab_RSV.csv", header = TRUE, sep = " ",stringsAsFactors = F,numerals="allow.loss")
 row.names(d) <- d$RSV
-d <- subset(d,select=-c(RSV,AK_SK_31)) # AK_SK_31 is an oral sample included by mistake
-
-
+d <- subset(d,select=-c(RSV,AK_SK_31)) # has no metadata
 
 ### Create df "alpha" to contain number of taxa per sample for the 16S data
 alpha <- data.frame(matrix(ncol = 2, nrow = 0))
@@ -76,7 +73,7 @@ alpha$depth = depth16S$total_reads
 
 
 ################################################
-### Plot reads by depth (Figure 2 supplement 1a)
+### Plot RSVs by depth (Figure 2 supplement 1a)
 
 ggplot(alpha, aes(x=depth, y=RSVs)) + 
   geom_point(colour="black",pch=21, size=3) + theme_cowplot() + ylab("RSVs") + xlab("High-quality reads")+
@@ -113,6 +110,13 @@ for (row in 1:nrow(alpha)){
 
 } 
 
+################################################
+### 16S rarefaction curve 
+
+# Need matrix where cells are reads, rows are samples, and columns are RSVs --> readcount_16 has the reads (for 3007 RSVs)
+rarecurve(readcount_16S,label=F,step=200,xlab="16S reads",ylab="RSVs detected",col=randomColor(count = 76))
+# --> most of these curves do plateau 
+
 
 
 
@@ -134,13 +138,10 @@ c +  geom_signif(comparisons = list(c("Trans-Himalayas","Northeast Hills"),  c("
                         map_signif_level = T,  y_position = c(280, 304,328), textsize=0, # add asterisks in ppt
                         test='t.test') 
 
-
 # statistics - one-way ANOVA 
 res.aov <- aov(RSVs ~ region, data = alpha)  
 summary(res.aov) # p = 0.001
 p2 <- as.data.frame(TukeyHSD(res.aov)[1]) # TH vs all are significant; nothing else 
-
-
 
 
 
@@ -153,7 +154,6 @@ p2 <- as.data.frame(TukeyHSD(res.aov)[1]) # TH vs all are significant; nothing e
 alpha2 <-alpha %>% mutate(tribe = str_replace(tribe, "Gondia", "Gond"))
 alpha2$tribe <- factor(alpha2$tribe, levels = rev(c("Purigpa","Balti","Brokpa","Boto","Madia","Gond","Kabui","Warli")))
 alpha2<-subset(alpha2,is.na(alpha2$tribe)==F)
-
 ggplot(alpha2, aes(x=tribe, y=RSVs, group=tribe)) + geom_boxplot(aes(fill=tribe)) +
   theme_cowplot() + ylab("RSV count") + theme(legend.position = "none") + xlab("") +
   scale_fill_manual(values = c('#b33f25',"#edc42f","#2f3cb5",'#acb2e6',"#7CAE00","#a5e602","#cde09d","#4b6901")) +
@@ -246,13 +246,57 @@ x=ggplot(Nspecies, aes(x=Gbp, y=n)) +
   geom_smooth(method = "lm", se = FALSE,color='orange') +ggtitle('Metagenomics')
 x
 
-ggsave("Fig2_S1B.pdf", plot=x,height=1.79*1.8,width=2.13*1.8,units="in")
+#ggsave("Fig2_S1B.pdf", plot=x,height=1.79*1.8,width=2.13*1.8,units="in")
 
 summary(lm(Nspecies$n~Nspecies$Gbp)) #Adjusted R-squared:  0.305 , 1.675e-07
 # this linear regression is skewed by the outliers AK_SR_1 and AK_SR_2 and, to a lesser extent, AK_SK_32
 
 
+################################################
+### metagenomic rarefaction curve 
 
+# Need matrix where cells are reads, rows are samples, and columns are GENERA (fewer columns/more manageable than species)
+samples <- unique(d$sample)
+taxa <- unique(d$genome)
+df <- data.frame(matrix(ncol = length(taxa), nrow = length(samples)))
+names(df) <- taxa; rownames(df) <- samples
+# 
+for (s in 1:length(samples)){
+  sdf <- subset(d,d$sample==samples[[s]])
+   for (t in 1:length(taxa)){
+    if ( (taxa[[t]] %in% sdf$genome)==TRUE){
+      row <- subset(sdf,sdf$genome == taxa[[t]])
+      df[s,t]= row$reads # save the READS from this row/genome/species 
+    } else (df[s,t]=0)
+  }
+} 
+
+
+## Examine range of total depth per sample
+totals <- rowSums(df)
+min_depth <- min(totals) # 182,810 
+max_depth <- max(totals) # 37,901,839
+
+# choose 100 points log-spaced to sample early growth finely
+n_points <- 100
+depths <- unique(round(exp(seq(log(1), log(min_depth), length.out = n_points))))
+depths <- depths[depths >= 1]
+
+# compute expected richness for each sample at these depths
+raref_mat <- t(sapply(1:nrow(df), function(i) {
+  rarefy(df[i, ], sample = depths)
+}))
+rownames(raref_mat) <- rownames(df)
+colnames(raref_mat) <- depths
+
+# plot: one curve per sample
+matplot(depths, t(raref_mat), type = "l", lty = 1, xlab = "Metagenomic Read Pairs (2x140 bp)", ylab = "Expected species",xlim=c(0,3000))
+
+# --> plateau happens before 3000 read pairs for all curves, which is <1 Mb of data 
+# so while more sequencing always has potential to add more species, 
+# given the species/genomes observed in this dataset, we did enough sequencing to detect those 
+# but this curve makes less sense for metagenomic data, because 1 read pair is never enough for a species --
+# the minimum is 4000
 
 ################################################################## 
 ## Figure 2 Supplement 1C
@@ -313,3 +357,15 @@ b =a + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
 b
 
 #ggsave("Fig2_S1E.pdf", plot=b,width=1.85*1.92,height=1.85*2.21,units="in")
+
+# statistics - one-way ANOVA 
+res.aov <- aov(Species ~ tribe, data = alphaMetaSpecies) # one-way ANOVA was performed 
+summary(res.aov) # p = 0.214
+#p2 <- as.data.frame(TukeyHSD(res.aov)[1]) # nothing significant  
+
+
+
+
+
+
+
