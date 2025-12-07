@@ -62,7 +62,7 @@ pca_bcdist16 <- dudi.pca(dfc,nf=5,scale=T,center=T,scannf=F)
 res.ind16 <- get_pca_ind(pca_bcdist16)
 coords16 <- res.ind16$coord 
 eig.val16 <- get_eigenvalue(pca_bcdist16)
-head(eig.val16)  # 34.5, 15.4
+head(eig.val16)  # 34.6, 15.4
 
 # construct data frame for plot 
 dimsToplot16 <- as.data.frame(cbind(coords16$Dim.1,coords16$Dim.2,meta16$Region,as.character(meta16$Tribe)))
@@ -112,7 +112,7 @@ u = ggplot(data = dimsToplot16, aes(y = PC1, x = -PC2, colour=Tribe, fill = Trib
   scale_color_manual(values = col_list) + 
   scale_fill_manual(values = col_list)   + ggtitle("16S RSVs")+
   theme_cowplot() +  
-  ylab("PC1 (34.9%)") + xlab("PC2 (15.0%)")+
+  ylab("PC1 (34.6%)") + xlab("PC2 (15.4%)")+
   geom_polygon(data = hulls_16S_tribe, alpha = 0.25)  +
   theme( legend.justification = "top" )
 u
@@ -120,7 +120,7 @@ u
 adonis2(bc_dist.arcsine_nooutliers ~ meta16_nooutliers$Tribe, by='terms', perm=10001) 
 # p = 1e-5 , R2 = 0.2198, verified 110425
 
-ggsave("FigS2F.pdf", plot=u,height=1.94*2,width=1.4*2.7,units="in") 
+ggsave("Fig2_S3B.pdf", plot=u,height=1.94*2,width=1.4*2.7,units="in") 
 
 
 
@@ -286,6 +286,9 @@ bc_dist.arcsine_nooutliers = vegan::vegdist(df.arcsine_nooutliers, method = "bra
 #
 adonis2(bc_dist.arcsine_nooutliers ~  meta_nooutliers$Tribe, by='terms', perm=10001) 
 # p < 1e-5 , R2 = 0.191, 10/21/25
+
+adonis2(bc_dist.arcsine_nooutliers ~  meta_nooutliers$Region, by='terms', perm=10001) 
+# p = 1 e -4, R2 = 0.13, 11/10/25
 
 
 
