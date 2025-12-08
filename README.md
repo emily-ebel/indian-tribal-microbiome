@@ -1,4 +1,4 @@
-This folder contains analysis scripts and input data tables from Ebel and Kulkarni et al., “‬Indian tribal gut microbiomes vary with dairy and grain consumption," in revision as of November 2025. 
+This folder contains analysis scripts and input data tables from Ebel and Kulkarni et al., “‬Indian tribal gut microbiomes vary with dairy and grain consumption," in revision as of December 2025. 
 
 Raw sequencing data are available at https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1266865/. 
 
@@ -23,7 +23,7 @@ Raw sequencing data are available at https://www.ncbi.nlm.nih.gov/bioproject/PRJ
 - Fig2_relab_SRG.csv (SRG = species-representative genomes (metagenomics))
 
 
-### HUMAnN 2.0 tables 
+### HUMAnN 2.0 output tables 
 - GOcombined.tsv.gz
 - metaCyc_100.tsv
 
